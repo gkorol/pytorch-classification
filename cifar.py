@@ -170,6 +170,7 @@ def main():
 
     # model = torch.nn.DataParallel(model).cuda()
     torch.backends.cudnn.benchmark = True
+    model = model.to("cuda")
     cudnn.benchmark = True
     print('    Total params: %.2fM' % (sum(p.numel() for p in model.parameters())/1000000.0))
     criterion = nn.CrossEntropyLoss()
